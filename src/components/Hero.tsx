@@ -41,7 +41,7 @@ const Hero: React.FC = () => {
     if (banners.length === 0) return null;
 
     return (
-        <section className="relative h-[80vh] md:h-[90vh] overflow-hidden">
+        <section className="relative h-[80vh] md:h-[100vh] overflow-hidden">
             {banners.map((banner, index) => (
                 <div
                     key={banner.id}

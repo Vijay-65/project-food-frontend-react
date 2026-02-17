@@ -29,7 +29,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         : (product.imageUrl ? `${IMAGE_BASE_URL}${product.imageUrl}` : 'https://via.placeholder.com/300?text=No+Image');
 
     return (
-        <div className="glass-card overflow-hidden group hover:translate-y-[-8px] transition-all duration-300">
+        <div className="glass-card overflow-hidden group hover:translate-y-[-8px] transition-all duration-300 hover-blink">
             <div className="relative h-48 overflow-hidden">
                 <img
                     src={imageUrl}
@@ -73,17 +73,17 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 </p>
                 <button
                     onClick={handleAddToCart}
-                    className={`w-full py-2.5 rounded-xl border-2 font-bold transition-all duration-300 flex items-center justify-center gap-2 ${isAdded
-                        ? 'bg-success border-success text-white'
-                        : 'border-primary/10 text-primary hover:bg-primary hover:text-white'
+                    className={`w-full py-3 rounded-2xl border-2 font-black text-sm uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 active:scale-95 ${isAdded
+                            ? 'bg-success border-success text-white shadow-xl shadow-success/20'
+                            : 'border-primary/10 text-primary hover:bg-primary hover:text-white hover:shadow-xl hover:shadow-primary/20'
                         }`}
                 >
                     {isAdded ? (
                         <>
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                             </svg>
-                            Added to Cart
+                            Added
                         </>
                     ) : (
                         'Add to Cart'

@@ -105,6 +105,20 @@
   animation: progressFast 2s linear forwards;
 }
 
+@keyframes kenBurns {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.15);
+  }
+}
+
+.animate-ken-burns {
+  animation: kenBurns 12s ease-in-out alternate infinite;
+}
+
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
@@ -112,4 +126,28 @@
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+
+  100% {
+    transform: translateX(200%) skewX(-15deg);
+  }
+}
+
+.hover-blink {
+  @apply relative overflow-hidden;
+}
+
+.hover-blink::after {
+  content: '';
+  @apply absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent;
+  pointer-events: none;
+}
+
+.hover-blink:hover::after {
+  animation: shimmer 0.8s ease-in-out;
 }
